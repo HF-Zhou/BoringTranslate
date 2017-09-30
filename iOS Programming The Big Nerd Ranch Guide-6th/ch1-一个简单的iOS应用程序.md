@@ -321,8 +321,8 @@ class ViewController: UIViewController {
 ```swift
 class ViewController: UIViewController {
 
-    @IBOutlet var questionLabel: UILabel!`
-    @IBOutlet var answerLabel: UILabel!`
+    @IBOutlet var questionLabel: UILabel!
+    @IBOutlet var answerLabel: UILabel!
 
     @IBAction func showNextQuestion(_ sender: UIButton) {
 
@@ -369,7 +369,7 @@ class ViewController: UIViewController {
 在项目导航器中，选择 `ViewController.swift`。 添加以下代码，声明两个字符串数组和一个整数。
 
 ```swift
-class ViewController: UIViewController {`
+class ViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerLabel: UILabel!
 
@@ -393,17 +393,17 @@ class ViewController: UIViewController {`
 ```swift
     ...
     @IBAction func showNextQuestion(_ sender: UIButton) {
-       currentQuestionIndex += 1
-       if currentQuestionIndex == questions.count {
-           currentQuestionIndex = 0
-        }
+        currentQuestionIndex += 1
+        if currentQuestionIndex == questions.count {
+            currentQuestionIndex = 0
+        }
         let question: String = questions[currentQuestionIndex]
         questionLabel.text = question
         answerLabel.text = "???"
     }
 
     @IBAction func showAnswer(_ sender: UIButton) {
-        let answer: String = answers[currentQuestionIndex]
+        let answer: String = answers[currentQuestionIndex]
         answerLabel.text = answer
     }
     ...
