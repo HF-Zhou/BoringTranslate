@@ -53,9 +53,8 @@ Swift 原始数据类型（如数字和布尔值）的实现可能会让您感�
 
 在示例代码中，`var` 关键字表示一个变量，因此 str 的值可以从其初始值更改。 键入以下代码以更改 str 的值，您将看到结果显示在右侧的边栏中。
 
-> `var str = "Hello, playground" `    "Hello, playground"
-
-> **`str = "Hello, Swift" `**        "Hello, Swift"
+> `var str = "Hello, playground" `    "Hello, playground"<br>
+**`str = "Hello, Swift" `**        "Hello, Swift"
 
 （请注意，我们会在右边显示侧边栏的结果，给那些没有积极地进行练习的读者看。）
 
