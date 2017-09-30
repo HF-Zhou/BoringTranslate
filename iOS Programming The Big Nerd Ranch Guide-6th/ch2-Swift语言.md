@@ -102,7 +102,7 @@ Option(Alt)-单击显示快速帮助将适用于任何对象。
 
 >`var str = "Hello, playground" `    "Hello, playground"<br>
 `str = "Hello, Swift" `        "Hello, Swift"<br>
-`let constStr = str`         "Hello, Swift" <br>
+`let constStr = str`         "Hello, Swift" <br><br>
 **`var nextYear: Int`**<br>
 **`var bodyTemp: Float`**<br>
 **`var hasPet: Bool`**
@@ -237,7 +237,7 @@ Swift 还提供下标作为访问数组的速记。 要检索数组中的元素�
 
 ## 属性 ##
 
-属性是与类型实例相关联的值。 例如，**String** 具有属性 *isEmpty*，它是一个 **Bool**，它告诉您字符串是否为空。 **Array <T>** 具有属性 *count*，它是数组中的元素数量，为 **Int**。 在 playground 上访问这些属性：
+属性是与类型实例相关联的值。 例如，**String** 具有属性 `isEmpty`，它是一个 **Bool**，它告诉您字符串是否为空。 **Array <T>** 具有属性 *count*，它是数组中的元素数量，为 **Int**。 在 playground 上访问这些属性：
 
 > `let countingUp = ["one", "two"]`    ["one", "two"]<br>
 `let secondElement = countingUp[1]`   "two"<br>
@@ -260,7 +260,7 @@ append（_ :)方法接受数组类型的元素，并将其添加到数组的末�
 
 ## 可选值(Optional) ##
 
-Swift 类型可以是 可选(*optional*) 的，这通过附加 ？到一个类型名称来表示 。
+Swift 类型可以是 可选(`optional`) 的，这通过附加 ？到一个类型名称来表示 。
 
 >`var anOptionalFloat: Float?`<br>
 `var anOptionalArrayOfStrings: [String]?`<br>
@@ -288,8 +288,8 @@ Swift 类型可以是 可选(*optional*) 的，这通过附加 ？到一个类�
 
 您可以像任何其他变量一样将值分配给可选项。 为 reading 变量 分配浮点数字：
 
->**`reading1 = 9.8`**    9.8
-**`reading2 = 9.2`**    9.2
+>**`reading1 = 9.8`**    9.8<br>
+**`reading2 = 9.2`**    9.2<br>
 **`reading3 = 9.7`**     9.7
 
 但是，您不能像非可选浮点数那样使用这些可选浮点，即使它们已被赋值为 **Float**。 在读取可选变量的值之前，必须解决其值为 `nil` 的可能性。 这被称为 解包(`unwrap`) 可选值。
@@ -298,26 +298,26 @@ Swift 类型可以是 可选(*optional*) 的，这通过附加 ？到一个类�
 
 要强行解开一个可选项，你可以附加一个！ 到它的后面。 首先，尝试 avgReading，就像它们是非可选变量一样：
 
->`reading1 = 9.8`                9.8
-`reading2 = 9.2`                9.2
-`reading3 = 9.7`                9.7
+>`reading1 = 9.8`                9.8<br>
+`reading2 = 9.2`                9.2<br>
+`reading3 = 9.7`                9.7<br>
 **`let avgReading = (reading1 + reading2 + reading3) / 3`**
 
 这会导致错误，因为可选值需要先解开。 因此我们强制解开 reading 以解决错误：
 
->~~**`let avgReading = (reading1 + reading2 + reading3) / 3`**~~
+>~~**`let avgReading = (reading1 + reading2 + reading3) / 3`**~~<br>
 **`let avgReading = (reading1! + reading2! + reading3!) / 3`**    9.566667
 
 一切都看起来不错，能看到边栏中的正确平均值。 但危险潜伏在于您的代码中。 当你强行展开一个可选值，你告诉编译器你确定这个可选值不会是 `nil`，因而它可以被看作是一个正常的 **Float**。 但如果不是浮点数呢？ 试着注释掉 reading3 的赋值语句，这将返回默认值 `nil`。
 
->`reading1 = 9.8`      9.8
-`reading2 = 9.2`      9.2
-~~`reading3 = 9.7`~~
+>`reading1 = 9.8`      9.8<br>
+`reading2 = 9.2`      9.2<br>
+~~`reading3 = 9.7`~~<br>
 **`// reading3 = 9.7`**
 
 现在出现了一个错误。 `Xcode` 可能会在 playground 底部打开其调试区域，并提供有关错误的信息。 如果没有，请选择 `View` → `Debug Area` → `Show Debug Area`。 错误如下：
 
->`fatal error: unexpectedly found nil while unwrapping an Optional value`
+>`fatal error: unexpectedly found nil while unwrapping an Optional value`<br>
 `致命错误：在解开可选值时意外发现为 nil`
 
 如果你强行展开一个可选值，而且该可选值为 `nil`，那么会导致出现 中断(`trap`) 并终止应用程序。
@@ -326,13 +326,13 @@ Swift 类型可以是 可选(*optional*) 的，这通过附加 ？到一个类�
 
 更改您的代码以使用 `if-let` 语句来测试所有三个变量中的有效值。
 
->~~`let avgReading = (reading1! + reading2! + reading3!) / 3`~~ 
-**`if let r1 = reading1,`**
-  **`let r2 = reading2,`**
-&emsp;&emsp;**`let r3 = reading3 {`**
-&emsp;&emsp;**`let avgReading = (r1 + r2 + r3) / 3`**
-**`} else {`**
-  **`let errorString = "Instrument reported a reading that was nil."`**
+>~~`let avgReading = (reading1! + reading2! + reading3!) / 3`~~ <br>
+**`if let r1 = reading1,`**<br>
+  **`let r2 = reading2,`**<br>
+&emsp;&emsp;**`let r3 = reading3 {`**<br>
+&emsp;&emsp;**`let avgReading = (r1 + r2 + r3) / 3`**<br>
+**`} else {`**<br>
+  **`let errorString = "Instrument reported a reading that was nil."`**<br>
 **`}`**
 
 reading3 目前为 `nil`，所以其对 `r3` 的赋值失败，侧栏显示 errorString。
@@ -343,15 +343,15 @@ reading3 目前为 `nil`，所以其对 `r3` 的赋值失败，侧栏显示 erro
 
 回想一下，数组超出它的范围会导致一个 异常(trap)。 而字典则不一样，检索字典的结果是可选的：
 
->`let nameByParkingSpace = [13: "Alice", 27: "Bob"]`    [13: "Alice", 27: "Bob"]
-**`let space13Assignee: String? = nameByParkingSpace[13]`**  "Alice"
+>`let nameByParkingSpace = [13: "Alice", 27: "Bob"]`    [13: "Alice", 27: "Bob"]<br>
+**`let space13Assignee: String? = nameByParkingSpace[13]`**  "Alice"<br>
 **`let space42Assignee: String? = nameByParkingSpace[42]`**  nil
 
 如果 键(key) 不在字典中，结果将为 `nil`。 与其他可选值一样，当检索字典时，通常使用 `if-let`：
 
->~~`let space13Assignee: String? = nameByParkingSpace[13]`~~
-**`if let space13Assignee = nameByParkingSpace[13] {`**
-&emsp;&emsp;**`print("Key 13 is assigned in the dictionary!")`**
+>~~`let space13Assignee: String? = nameByParkingSpace[13]`~~<br>
+**`if let space13Assignee = nameByParkingSpace[13] {`**<br>
+&emsp;&emsp;**`print("Key 13 is assigned in the dictionary!")`**<br>
 **`}`**
 
 ## 循环和字符串插值 ##
@@ -362,11 +362,13 @@ Swift 具有您可能熟悉的其他语言的所有控制流程语句：`if-else
 
 Swift 没有传统的你可能习惯了的 C 风格的循环。 相反，您可以使用 Swift 的 **Range** 类型和 `for-in` 语句更简单地完成相同的事情：
 
->`let range = 0..<countingUp.count`
-`for i in range {`
-  `let string = countingUp[i]`
-  `// Use 'string'`
-`}`
+```swift
+let range = 0..<countingUp.count
+for i in range {
+	let string = countingUp[i]
+	// Use 'string
+}
+```
 
 枚举数组中的项是最直观的：
 
