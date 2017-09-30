@@ -274,8 +274,8 @@ class ViewController: UIViewController {
 ```swift
 class ViewController: UIViewController {
 
-    swift @IBOutlet var questionLabel: UILabel!
-    swift @IBOutlet var answerLabel: UILabel!
+    @IBOutlet var questionLabel: UILabel!
+    @IBOutlet var answerLabel: UILabel!
 
 }
 ```
