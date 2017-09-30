@@ -271,13 +271,13 @@ class ViewController: UIViewController {
 接下来，添加声明两个属性的代码。 （在本书中，您将添加的新代码将以粗体显示，您将删除的代码将被删除线显示。）不用担心现在就要了解代码或属性; 这才刚刚开始
 
 
-> ```swift
+```swift
 class ViewController: UIViewController {
->
->  swift @IBOutlet var questionLabel: UILabel!
->  swift @IBOutlet var answerLabel: UILabel!
->
-> }
+
+  swift @IBOutlet var questionLabel: UILabel!
+  swift @IBOutlet var answerLabel: UILabel!
+
+}
 ```
 
 此代码为 **ViewController** 的每个实例提供一个名为 `questionLabel` 的 `outlet` 和一个名为 `answerLabel` 的 `outlet`。 视图控制器可以使用每个 `outlet` 来引用特定的 **UILabel** 对象（即您视图中的一个标签）。 @IBOutlet 关键字告诉 `Xcode`，您将使用 `Interface Builder` 将这些 outlet 连接到标签对象。
