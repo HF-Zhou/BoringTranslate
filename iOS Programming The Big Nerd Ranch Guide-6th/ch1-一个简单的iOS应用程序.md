@@ -1,3 +1,24 @@
+* [创建一个Xcode项目](#创建一个xcode项目)
+* [模型 - 视图 - 控制器](#模型---视图---控制器)
+* [设计Quiz程序](#设计quiz程序)
+   * [界面生成器](#界面生成器)
+   * [构建界面](#构建界面)
+   * [创建视图对象](#创建视图对象)
+* [在模拟器上运行](#在模拟器上运行)
+* [自动布局简介](#自动布局简介)
+* [创建连接](#创建连接)
+   * [声明 outlet](#声明-outlet)
+   * [设置 outlet](#设置-outlet)
+   * [定义动作方法](#定义动作方法)
+   * [设定目标和动作](#设定目标和动作)
+   * [连接摘要](#连接摘要)
+* [创建模型层](#创建模型层)
+   * [实现动作方法](#实现动作方法)
+* [加载第一个问题](#加载第一个问题)
+* [构建应用程序](#构建应用程序)
+* [应用图标](#应用图标)
+* [启动屏幕](#启动屏幕)
+
 在本章中，您将要编写一个名为 `Quiz` 的 iOS应用程序。 此应用程序将显示一个问题，然后在用户点击按钮时显示答案。 点击另一个按钮将向用户显示一个新问题（图1.1）。
 
 **图1.1您的第一个应用程序：Quiz**
@@ -21,10 +42,10 @@
 
 ![](http://upload-images.jianshu.io/upload_images/1230738-ef5690fbd8bd1dbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-这本书是为 `Xcode 8.1` 创建的。 这些模板的名称可能随着新的 `Xcode` 版本而改变。 如果您没有看到 `Single View Application` 模板，请使用看起来最简单的模板。 
+这本书是为 `Xcode 8.1` 创建的。 这些模板的名称可能随着新的 `Xcode` 版本而改变。 如果您没有看到 `Single View Application` 模板，请使用看起来最简单的模板。
 
 单击 `Next`，然后在下一个工作表  `Product Name` 中输入 `Quiz`（图1.3）。接着是组织名称和标识符。 您可以使用 `Big Nerd Ranch` 或任何您想要的组织名称。 对于组织标识符，您可以使用 `com.bignerdranch* 或 *com.yourcompanynamehere`。
- 
+
 从 `Language` 弹出菜单中，选择 `Swift`，然后从 `Devices` 弹出菜单中选择 `Universal`。 确保未选中 `Use Core Data` 复选框。
 
 **图1.3配置新项目**
@@ -241,7 +262,7 @@
 import UIKit
 
 class ViewController: UIViewController {
- 	
+
 }
  ```
 
@@ -301,9 +322,9 @@ class ViewController: UIViewController {
 >   `@IBOutlet var answerLabel: UILabel!`
 >
 >   **`@IBAction func showNextQuestion(_ sender: UIButton) {`**
->	
+>
 >    **`}`**
->	
+>
 >   **`@IBAction func showAnswer(_ sender: UIButton) {`**
 >		
 >   **`}`**
@@ -346,7 +367,7 @@ class ViewController: UIViewController {
 > `class ViewController: UIViewController {`
 >   `@IBOutlet var questionLabel: UILabel!`
 >   `@IBOutlet var answerLabel: UILabel!`
-> 
+>
 >   **`let questions: [String] = [`**
 >     **`"What is 7+7?",`**
 >     **`"What is the capital of Vermont?",`**
