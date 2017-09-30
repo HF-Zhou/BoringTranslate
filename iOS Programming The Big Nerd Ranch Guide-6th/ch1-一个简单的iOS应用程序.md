@@ -316,7 +316,7 @@ class ViewController: UIViewController {
 
 在您的应用程序中，这两个按钮的目标将是 **ViewController** 的实例。 每个按钮都有自己的动作。 我们首先定义两个动作方法：**showNextQuestion（_ :)** 和 **showAnswer（_ :)**。
 
-重新打开 `ViewController.swift`，并在 outlet 后添加两种动作方法。
+重新打开 `ViewController.swift`，并在 outlet 后添加两个动作方法。
 
 ```swift
 class ViewController: UIViewController {
@@ -354,7 +354,7 @@ class ViewController: UIViewController {
 
 **ViewController** 和视图对象之间现在有五个连接。 您已设置属性 `answerLabel` 和 `questionLabel` 来引用标签对象——这是其中两个。 **ViewController** 是两个按钮的目标——这是另外两个。 项目的模板创建了一个附加连接： **ViewController** 的 `view` 属性连接到表示应用程序背景的 View 对象。 这就是所有的五个连接。
 
-您可以在连接检查器中检查这些连接。 在文档大纲中选择 *View Controller*。 然后，在公用程序区域中，单击选项卡 ![](http://upload-images.jianshu.io/upload_images/1230738-cb72e66cc47a5160.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 以显示连接检查器（图1.25）。
+您可以在连接检查器中检查这些连接。 在文档大纲中选择 `View Controller`。 然后，在公用程序区域中，单击选项卡 ![](http://upload-images.jianshu.io/upload_images/1230738-cb72e66cc47a5160.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 以显示连接检查器（图1.25）。
 
 **图1.25检查连接检查器中的连接**
 
@@ -368,23 +368,17 @@ class ViewController: UIViewController {
 
 在项目导航器中，选择 `ViewController.swift`。 添加以下代码，声明两个字符串数组和一个整数。
 
-> `class ViewController: UIViewController {`
->   `@IBOutlet var questionLabel: UILabel!`
->   `@IBOutlet var answerLabel: UILabel!`
->
->   **`let questions: [String] = [`**
->     **`"What is 7+7?",`**
->     **`"What is the capital of Vermont?",`**
->     **`"What is cognac made from?"`**
->   **`]`**
->   **`let answers: [String] = [`**
->     **`"14",`**
->     **`"Montpelier",`**
->     **`"Grapes"`**
->   **`]`**
->   **`var currentQuestionIndex: Int = 0`**
-> `...`
->  `}`
+```swift
+class ViewController: UIViewController {`
+    @IBOutlet var questionLabel: UILabel!
+    @IBOutlet var answerLabel: UILabel!
+
+    let questions: [String] = ["What is 7+7?", "What is the capital of Vermont?", "What is cognac made from?"]
+    let answers: [String] = ["14", "Montpelier", "Grapes"]
+    var currentQuestionIndex: Int = 0
+    ...
+}
+```
 
 数组是包含问题和答案的有序列表。 整数用于跟踪用户当前的问题。
 
@@ -396,33 +390,38 @@ class ViewController: UIViewController {
 
 现在你有问题和答案，你可以来实现它们的动作方法。 在 `ViewController.swift` 中，更新 **showNextQuestion（_ :)** 和 **showAnswer（_ :)**。
 
-> `...`
-`@IBAction func showNextQuestion(_ sender: UIButton) {`
-  **`currentQuestionIndex += 1`**
-  **`if currentQuestionIndex == questions.count {`**
-    **`currentQuestionIndex = 0`**
-  **`}`**
-  **`let question: String = questions[currentQuestionIndex]`**
-  **`questionLabel.text = question`**
-  **`answerLabel.text = "???"`**
-`}`<br>
-`@IBAction func showAnswer(_ sender: UIButton) {`
-  **`let answer: String = answers[currentQuestionIndex]`**
-  **`answerLabel.text = answer`**
-`}.`
-`..`
+```swift
+    ...
+    @IBAction func showNextQuestion(_ sender: UIButton) {
+       currentQuestionIndex += 1
+       if currentQuestionIndex == questions.count {
+           currentQuestionIndex = 0
+        }
+        let question: String = questions[currentQuestionIndex]
+        questionLabel.text = question
+        answerLabel.text = "???"
+    }
+
+    @IBAction func showAnswer(_ sender: UIButton) {
+        let answer: String = answers[currentQuestionIndex]
+        answerLabel.text = answer
+    }
+    ...
+```
 
 ## 加载第一个问题 ##
 
 应用程序启动后，您将要从数组中加载第一个问题，并使用它来替换 `???` 问题标签中的占位符。 一个很好的方法是重写 **ViewController** 的 **viewDidLoad（）** 方法。 （“覆盖”表示您正在为方法提供自定义实现。）将方法添加到 `ViewController.swift`。
 
->`class ViewController: UIViewController {`
-  `...`
-  **`override func viewDidLoad() {`**
-  **`super.viewDidLoad()`**
-    **`questionLabel.text = questions[currentQuestionIndex]`**
-  `}`
-`}`
+```swift
+class ViewController: UIViewController {
+    ...
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        questionLabel.text = questions[currentQuestionIndex]
+    }
+}
+```
 
 您的应用程序的所有代码现在已经完成！
 
