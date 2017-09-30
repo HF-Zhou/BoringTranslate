@@ -274,8 +274,8 @@ class ViewController: UIViewController {
 ```swift
 class ViewController: UIViewController {
 
-  swift @IBOutlet var questionLabel: UILabel!
-  swift @IBOutlet var answerLabel: UILabel!
+    swift @IBOutlet var questionLabel: UILabel!
+    swift @IBOutlet var answerLabel: UILabel!
 
 }
 ```
@@ -318,19 +318,21 @@ class ViewController: UIViewController {
 
 重新打开 `ViewController.swift`，并在 outlet 后添加两种动作方法。
 
-> `class ViewController: UIViewController {`
->
->   `@IBOutlet var questionLabel: UILabel!`
->   `@IBOutlet var answerLabel: UILabel!`
->
->   **`@IBAction func showNextQuestion(_ sender: UIButton) {`**
->
->    **`}`**
->
->   **`@IBAction func showAnswer(_ sender: UIButton) {`**
->		
->   **`}`**
-> `}`
+```swift
+class ViewController: UIViewController {
+
+    @IBOutlet var questionLabel: UILabel!`
+    @IBOutlet var answerLabel: UILabel!`
+
+    @IBAction func showNextQuestion(_ sender: UIButton) {
+
+    }
+
+    @IBAction func showAnswer(_ sender: UIButton) {
+
+    }
+}
+```
 
 在进行目标和动作连接后，您将会使用这些方法。`@IBAction` 关键字告诉 `Xcode` 您将在 `Interface Builder` 中进行这些连接。
 
