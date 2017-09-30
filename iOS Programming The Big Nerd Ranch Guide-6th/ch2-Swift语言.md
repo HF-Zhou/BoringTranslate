@@ -55,7 +55,7 @@ Swift 原始数据类型（如数字和布尔值）的实现可能会让您感�
 
 > `var str = "Hello, playground" `    "Hello, playground"
 
-**`str = "Hello, Swift" `**        "Hello, Swift"
+> **`str = "Hello, Swift" `**        "Hello, Swift"
 
 （请注意，我们会在右边显示侧边栏的结果，给那些没有积极地进行练习的读者看。）
 
