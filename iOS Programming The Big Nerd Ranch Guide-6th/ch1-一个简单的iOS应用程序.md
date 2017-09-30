@@ -271,10 +271,13 @@ class ViewController: UIViewController {
 接下来，添加声明两个属性的代码。 （在本书中，您将添加的新代码将以粗体显示，您将删除的代码将被删除线显示。）不用担心现在就要了解代码或属性; 这才刚刚开始
 
 
-> `class ViewController: UIViewController {`
-
->   **`@IBOutlet var questionLabel: UILabel!`**
->   **`@IBOutlet var answerLabel: UILabel!`**
+> ```swift
+class ViewController: UIViewController {
+```
+>
+>   ** ```swift @IBOutlet var questionLabel: UILabel!``` **
+>
+> &emsp;&emsp;** ```swift @IBOutlet var answerLabel: UILabel!``` **
 
 > `}`
 
