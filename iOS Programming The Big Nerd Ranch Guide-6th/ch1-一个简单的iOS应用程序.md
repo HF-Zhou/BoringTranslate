@@ -273,13 +273,12 @@ class ViewController: UIViewController {
 
 > ```swift
 class ViewController: UIViewController {
+>
+>  swift @IBOutlet var questionLabel: UILabel!
+>  swift @IBOutlet var answerLabel: UILabel!
+>
+> }
 ```
->
->   ** ```swift @IBOutlet var questionLabel: UILabel!``` **
->
-> &emsp;&emsp;** ```swift @IBOutlet var answerLabel: UILabel!``` **
-
-> `}`
 
 此代码为 **ViewController** 的每个实例提供一个名为 `questionLabel` 的 `outlet` 和一个名为 `answerLabel` 的 `outlet`。 视图控制器可以使用每个 `outlet` 来引用特定的 **UILabel** 对象（即您视图中的一个标签）。 @IBOutlet 关键字告诉 `Xcode`，您将使用 `Interface Builder` 将这些 outlet 连接到标签对象。
 
