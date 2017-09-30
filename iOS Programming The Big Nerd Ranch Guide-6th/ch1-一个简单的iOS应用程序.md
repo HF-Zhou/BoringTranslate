@@ -237,17 +237,18 @@
 
 在 `ViewController.swift` 中，首先删除模板在 `class ViewController ：UIViewController {` 和 ` }`  之间自动生成的代码，使该文件如下所示：
 
- ```
- 	import UIKit
+ ```swift
+import UIKit
 
-	class ViewController: UIViewController {
+class ViewController: UIViewController {
  	
-	}
+}
  ```
 
 （为了简方使起见，我们不会再显示该文件的 `import UIKit` 这一行 。）
 
 接下来，添加声明两个属性的代码。 （在本书中，您将添加的新代码将以粗体显示，您将删除的代码将被删除线显示。）不用担心现在就要了解代码或属性; 这才刚刚开始
+
 
 > `class ViewController: UIViewController {`
 
